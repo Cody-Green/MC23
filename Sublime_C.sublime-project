@@ -1,0 +1,32 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+	"build_systems":
+	[
+		{
+			"name": "MinGW_CLANG",
+			 "cmd": ["cmd", "/c", "clang -g -gcodeview $file -o ..\\bin\\${file_base_name}_clang -Wl,--pdb=debug.pdb && ..\\bin\\${file_base_name}_clang.exe"],
+			 "file_regex": "^(.+)\\(([0-9]+):([0-9]+)\\) (.+)$",
+		},
+		{
+			"name": "MinGW_GCC",
+			 "cmd": ["cmd", "/c", "gcc -g $file -o ..\\bin\\${file_base_name}_gcc && ..\\bin\\${file_base_name}_gcc.exe"],
+			 "file_regex": "^(.+)\\(([0-9]+):([0-9]+)\\) (.+)$"
+		}
+	],
+	"settings":
+	{
+		"auto_complete": false,
+		"LSP":
+		{
+			"clangd":
+			{
+				"enabled": true,
+			},
+		},
+	},
+}
